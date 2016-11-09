@@ -2,6 +2,9 @@
 
 int main()
 {
+	SetConsoleCP(1251); // russian
+	SetConsoleOutputCP(1251);
+
 	Node *opers = NULL;
 	char exp[80];
 	char outstring[80];

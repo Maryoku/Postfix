@@ -6,6 +6,9 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <errno.h>
+#include <stdlib.h>
+#include <Windows.h>
 
 using namespace std;
 

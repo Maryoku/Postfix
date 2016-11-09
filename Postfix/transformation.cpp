@@ -1,8 +1,8 @@
 #include "header.h"
 
-int prior(char a)
+int prior(char s)
 {
-	switch (a)
+	switch (s)
 	{
 	case '*':
 	case '/':
