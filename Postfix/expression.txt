@@ -1,1 +1,6 @@
-(a+b)*c-d/(a+c)
+cc^((aa+bb)*cc^bb+cc^sqrt(argument)-ff)
+aa=3
+bb=2
+cc=2
+argument=4
+ff=22

@@ -1,28 +1,16 @@
 #ifndef HEADER
 #define HEADER
 
-#pragma warning (disable: 4996)
-#include "stdio.h"
-#include <iostream>
-#include <string>
 #include <fstream>
-#include <errno.h>
-#include <stdlib.h>
-#include <Windows.h>
+#include <map> 
+#include <stdio.h>
+#include <iostream>
+#include "stack_header.h"
 
 using namespace std;
 
-typedef struct Node_tag
-{
-	char elem;
-	struct Node_tag *next;
-}Node;
-
-bool IsEmptyNode(Node *head);
-bool PushNode(Node **head, char elem);
-int TopNode(Node *head);
-int PopNode(Node **head);
-int prior(char a);
-void transform(char *exp, char *outstring, Node *opers);
+void transform(ifstream &fStream, string &str, Node * &HelpStack, Node * &Postfix, map <string, double> &var, int prior[6][7]);
+double calcFunc(double arg, string func);
+void calc(Node * &HelpStack, Node * &Postfix, map <string, double> &var);
 
 #endif

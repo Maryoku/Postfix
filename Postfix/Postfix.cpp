@@ -2,26 +2,22 @@
 
 int main()
 {
-	SetConsoleCP(1251); // russian
-	SetConsoleOutputCP(1251);
+	ifstream file("expression1.txt");
+	string input;
 
-	Node *opers = NULL;
-	char exp[80];
-	char outstring[80];
-	int counter = 0;
+	Node *Postfix = NULL;
+	Node *HelpStack = NULL;
+	map <string, double> var;
+	                 // \0 +/- * /  (  )  ^
+	int prior[6][7] = { 4, 1, 1, 1, 1, 5, 1,   // \0
+		                2, 2, 1, 1, 1, 2, 1,   // +/- 
+		                2, 2, 2, 2, 1, 2, 1,   // *
+		                2, 2, 2, 2, 1, 2, 1,   // /
+		                5, 1, 1, 1, 1, 3, 1,   // (
+		                2, 2, 2, 2, 1, 2, 2 }; // ^
 
-	ifstream input("expression.txt");
+	transform(file, input, HelpStack, Postfix, var, prior);
+	calc(HelpStack, Postfix, var);
 
-	while (!input.eof()) {
-		input.get(exp[counter]);
-		counter++;
-	}
-	counter--; // особая магия ибо всплывает странный символ "|-"
-	exp[counter] = '\0';
-
-	printf("%s\n", exp);
-
-	transform(exp, outstring, opers);
-
-	printf("%s\n", outstring);
+	return 0;
 }

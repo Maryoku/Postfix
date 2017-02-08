@@ -1,6 +1,6 @@
 #include "stack_header.h"
 
-bool IsEmptyNode(Node * &head)
+bool IsEmptyNode_num(Node_double* &head)
 {
 	if (head == NULL)
 	{
@@ -12,9 +12,9 @@ bool IsEmptyNode(Node * &head)
 	}
 }
 
-int PushNode(Node * &head, string elem)
+int PushNode_num(Node_double* &head, double elem)
 {
-	Node *tmp = new Node;
+	Node_double *tmp = new Node_double;
 	if (tmp == NULL) return 0;
 	tmp->next = head;
 	tmp->elem = elem;
@@ -22,9 +22,9 @@ int PushNode(Node * &head, string elem)
 	return 1;
 }
 
-string TopNode(Node * &head)
+double TopNode_num(Node_double* &head)
 {
-	if (IsEmptyNode(head))
+	if (IsEmptyNode_num(head))
 	{
 		return 0;
 	}
@@ -34,17 +34,17 @@ string TopNode(Node * &head)
 	}
 }
 
-string PopNode(Node * &head)
+double PopNode_num(Node_double* &head)
 {
 	// проверка на Empty
-	if (IsEmptyNode(head)) {
+	if (IsEmptyNode_num(head)) {
 
 		return 0;
 	}
 	else
 	{
-		Node *out;
-		string elem;
+		Node_double *out;
+		double elem;
 
 		out = head;
 		head = head->next;
